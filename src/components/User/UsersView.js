@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import UserList from "./UserList";
-import { User } from "../../types/User";
 import useUsersService from "../../services/useUsersService";
 import { Link } from 'react-router-dom';
 
 
 function UsersView(props) {
-
     const userService = useUsersService();
-
 
     return (
         <>
