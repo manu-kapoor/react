@@ -9,7 +9,7 @@ function UsersView(props) {
 
     return (
         <>
-            <Link to={"/add"} className="btn btn-primary">Add New User</Link>
+            <Link to={"/users/add"} className="btn btn-primary">Add New User</Link>
             {userService.status === 'loading' && <div>Loading...</div>}
             {userService.status === 'loaded' && <UserList users={userService.payload} />}
             {userService.status === 'error' && (<div>Something went wrong.</div>)}

@@ -7,6 +7,30 @@ const UserService = () => {
         status: 'init'
     });
 
+    const createUser = (user: User) => {
+        setResult({ status: 'loading' });
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json; charset=utf-8');
+
+        return new Promise<User>((resolve, reject) => {
+            fetch("https://jsonplaceholder.typicode.com/users/", {
+                method: 'POST',
+                body: JSON.stringify(user),
+                headers: headers
+            })
+                .then(response => response.json())
+                .then(response => {
+                    setResult({ status: 'loaded', payload: response });
+                    resolve(response);
+                })
+                .catch(error => {
+                    setResult({ status: 'error', error })
+                    reject(error);
+                });
+        })
+    };
+
     const deleteUser = (id: number) => {
         setResult({ status: 'loading' });
 
@@ -66,7 +90,8 @@ const UserService = () => {
         result,
         getUser,
         updateUser,
-        deleteUser
+        deleteUser,
+        createUser
     };
 };
 

@@ -54,7 +54,7 @@ function UserView(props) {
         <>
             <Link to={"/users/add"} className="btn btn-primary">Add New User</Link>
             {userService.status === 'loading' && <div>Loading...</div>}
-            {userService.status === 'loaded' && <UserForm user={user} onChange={onChange} onSubmit={handleSubmit} onDelete={handleDelete} />}
+            {userService.status === 'loaded' && <UserForm user={user} onChange={onChange} onSubmit={handleSubmit} onDelete={handleDelete} existingUser={true} />}
             {userService.status === 'error' && (<div>Something went wrong.</div>)}
             {/* {result.status === 'loading' && <div>Loading...</div>}
             {result.status === 'loaded' && <UserForm user={user} onChange={onChange} onSubmit={handleSubmit} onDelete={handleDelete} />}

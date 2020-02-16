@@ -18,7 +18,7 @@ function UserList(props) {
                     return (
                         < tr key={user.id} >
                             <td>
-                                <Link to={"/user/" + user.id}>{user.id}</Link>
+                                <Link to={"/users/" + user.id}>{user.id}</Link>
                             </td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>

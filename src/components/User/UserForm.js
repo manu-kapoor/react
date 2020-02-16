@@ -4,12 +4,12 @@ import TextInput from "../../common/TextInput";
 function UserForm(props) {
     return (
         <form onSubmit={props.onSubmit}>
-            <TextInput id="id"
+            {props.existingUser && <TextInput id="id"
                 name="id"
                 label="ID"
                 onChange={props.onChange}
                 value={props.user.id}
-                readOnly={true} />
+                readOnly={true} />}
             <TextInput id="name"
                 name="name"
                 label="Name"
@@ -20,8 +20,13 @@ function UserForm(props) {
                 label="Email"
                 onChange={props.onChange}
                 value={props.user.email} />
+            <TextInput id="phone"
+                name="phone"
+                label="Phone"
+                onChange={props.onChange}
+                value={props.user.phone} />
             <input type="submit" value="Save" className="btn btn-primary" />
-            <input type="button" value="Delete" className="btn btn-danger" onClick={props.onDelete} />
+            {props.existingUser && <input type="button" value="Delete" className="btn btn-danger" onClick={props.onDelete} />}
         </form>
     )
 }

@@ -6,6 +6,7 @@ import NotFoundPage from './common/NotFoundPage';
 import UserView from './components/User/UserView';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UserAdd from './components/User/UserAdd';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
       <div className="container-fluid">
         <Switch>
           <Route path="/" exact component={UsersView} />
-          <Route path="/user/:id" component={UserView} />
+          <Route path="/users/add" component={UserAdd} />
+          <Route path="/users/:id" component={UserView} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
